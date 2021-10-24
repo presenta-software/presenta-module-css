@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PresentaModuleCss</title>
+    <script src="../dist/presenta-module-css.min.js"></script>
+</head>
+<body>
+    <div class="scene"><p>hello</p></div>
+    <script>
+        var modConfig = {}
+        var blockConfig = {
+            contextType: 'block',
+            css:`{
+    border: 1px solid red;
+} p{color:blue;}
+`
+            
+        }
+        new PresentaModuleCss(document.querySelector('.scene'), modConfig, blockConfig)
+    </script>
+</body>
+</html>
