@@ -1,8 +1,28 @@
 
 import scopeCSS from 'scope-css'
 
+/*
+{
+  type: 'text',
+  modules:{
+    css:{
+      css: 'p{color:res;}',
+      props: '--myColor:red; --otherProp: green;'
+    }
+  }
+} */
+
 const module = function (element, mod, config) {
   if (config.contextType !== 'block') return
+
+  const props = mod.props
+  if (props) {
+    const prps = props.split(';')
+    prps.forEach(p => {
+      const parts = p.split(':')
+      element.style.setProperty(parts[0], parts[1])
+    })
+  }
 
   const css = mod.css
   const n = Math.random() + ''
